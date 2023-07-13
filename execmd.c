@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <dirent.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 void execmd(char **argv) {
     char *command = NULL;
@@ -11,29 +11,27 @@ void execmd(char **argv) {
         /* get the command */
         command = argv[0];
 
-        /* check if the command is a directory */
-        struct stat filestat;
-        if (stat(command, &filestat) == 0) {
-            if (S_ISDIR(filestat.st_mode)) {
-                /* Command is a directory, so execute ls */
-                DIR *dir = opendir(command);
-                if (dir != NULL) {
-                    struct dirent *entry;
-                    while ((entry = readdir(dir)) != NULL) {
-                        printf("%s\n", entry->d_name);
-                    }
-                    closedir(dir);
-                } else {
+        /* handle specific commands */
+        if (strcmp(command, "ls") == 0) {
+            /* check if "-la" option is provided */
+            if (argv[1] && strcmp(argv[1], "-la") == 0) {
+                /* execute ls -la command */
+                argv[0] = "/bin/ls"; // or provide the path to ls executable
+                if (execvp(argv[0], argv) == -1) {
                     perror("Error:");
                 }
-                return;
+            } else {
+                /* execute ls command */
+                if (execvp(argv[0], argv) == -1) {
+                    perror("Error:");
+                }
+            }
+        } else {
+            /* execute other commands with execvp */
+            if (execvp(command, argv) == -1) {
+                perror("Error:");
             }
         }
-
-        /* execute the command with the shell */
-        char cmd[100];
-        snprintf(cmd, sizeof(cmd), "/bin/sh -c '%s'", command);
-        system(cmd);
     }
 }
 
