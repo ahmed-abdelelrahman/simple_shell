@@ -1,45 +1,65 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
+#include "main.h"
 
-char *get_location(char *command) {
-    char *path = getenv("PATH");
-    char *path_copy = NULL;
-    char *path_token = NULL;
-    char *file_path = NULL;
-    int command_length = strlen(command);
-    int directory_length = 0;
+char *get_location(char *command){
+    char *path, *path_copy, *path_token, *file_path;
+    int command_length, directory_length;
     struct stat buffer;
 
-    if (!path)
-        return NULL;
+    path = getenv("PATH");
 
-    path_copy = strdup(path);
-    path_token = strtok(path_copy, ":");
+    if(path){
 
-    while (path_token != NULL) {
-        directory_length = strlen(path_token);
-        file_path = malloc(directory_length + command_length + 2);
-        strcpy(file_path, path_token);
-        strcat(file_path, "/");
-        strcat(file_path, command);
+	    /* Duplicate the path string */
+	    path_copy = strdup(path);
 
-        if (stat(file_path, &buffer) == 0) {
-            free(path_copy);
-            return file_path;
+	    /* Get length of command */
+	    command_length = strlen(command);
+
+	    /* Break down the path_copy variable into individual tokens */
+	    path_token = strtok(path_copy, ":");
+
+	    while(path_token != NULL){
+		    
+		    /* Get length of directory */
+		    directory_length = strlen(path_token);
+
+		    /* Allocate memory for storing command name */
+		    file_path = malloc(command_length + directory_length + 2);
+		    
+		    /* To build the path for the command */
+		    strcpy(file_path, path_token);
+		    strcat(file_path, "/");
+		    strcat(file_path, command);
+		    strcat(file_path, "\0");
+
+		    /* Check if file path exits & return it, otherwise try another directory */
+		    if (stat(file_path, &buffer) == 0){
+
+			    /* free up allocated memory */
+			    free(path_copy);
+
+			    return (file_path);
+		    }
+		    else{
+			    /* free up the file_path memory */
+			    free(file_path);
+			    path_token = strtok(NULL, ":");
+		    }
+
+	    }
+
+	    free(path_copy);
+
+	    if (stat(command, &buffer) == 0)
+        {
+            return (command);
         }
 
-        free(file_path);
-        path_token = strtok(NULL, ":");
+
+        return (NULL);
+
     }
+    
+    return (NULL);
 
-    free(path_copy);
-
-    if (stat(command, &buffer) == 0) {
-        return command;
-    }
-
-    return NULL;
 }
-
