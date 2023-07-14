@@ -45,7 +45,7 @@ int main(void) {
         token = strtok(NULL, delim);
       }
 
-      // Remove newline character from the last token if present
+      /* Remove newline character from the last token if present*/
       if (i > 0 && argv[i - 1][strlen(argv[i - 1]) - 1] == '\n') {
         argv[i - 1][strlen(argv[i - 1]) - 1] = '\0';
       }
