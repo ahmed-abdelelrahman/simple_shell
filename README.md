@@ -103,7 +103,7 @@ Use system calls only when you need to
  
 Clone the below repository and compile the files into an executable using the GCC compiler.
 ```
-https://github.com/StellahMbao/simple_shell.git
+https://github.com/ahmed-abdelelrahman/simple_shell.git
 ```
 
 ### Basic usage :bulb:
