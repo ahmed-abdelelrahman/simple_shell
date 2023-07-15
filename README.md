@@ -54,7 +54,7 @@ Use system calls only when you need to
 * Support the history feature
 * Support the file input
 
-# |Files - Definition
+# | Files - Definition
 - README.md - description about the project repo
 - man_1_simple_shell - is the man page for the shell we are going to write.
 - AUTHORS - file at the  root of your repository, listing all individuals having contributed content to the repository. 
