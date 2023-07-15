@@ -66,7 +66,7 @@ Use system calls only when you need to
 - cmd.c - it finds the command the user entered.
 - execute.c - execute the command.
 
-# List of allowed functions and system calls
+#List of allowed functions and system calls
 * access (man 2 access)
 * chdir (man 2 chdir)
 * close (man 2 close)
