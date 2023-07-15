@@ -129,7 +129,7 @@ int main(int ac, char **av);
 void print_error_message(char *);
 int print_char_to_fd(char, int);
 int print_string_to_fd(char *, int);
-int print_string(char *);
+void print_string(char *);
 int print_char(char);
 
 /* my_string.c */
@@ -162,10 +162,10 @@ void *reallocate_memory(void *, unsigned int, unsigned int);
 int free_block(void **);
 
 /* my_atoi.c */
-int interactive_mode(info_t *);
+int is_interactive(info_t *);
 int is_delimiter(char, char *);
-int is_alphabetic(int);
-int atoi_custom(char *);
+int is_alpha(int);
+int my_atoi(char *);
 
 /* my_errors1.c */
 int error_atoi(char *);
@@ -201,7 +201,7 @@ int my_unsetenv(info_t *);
 int populate_environment_list(info_t *);
 
 /* my_getenv.c */
-char **get_environment(info_t *);
+char **get_environment_variables(info_t *);
 int unset_environment_variable(info_t *, char *);
 int set_environment_variable(info_t *, char *, char *);
 
@@ -234,3 +234,4 @@ int replace_variables(info_t *);
 int replace_string(char **, char *);
 
 #endif
+
