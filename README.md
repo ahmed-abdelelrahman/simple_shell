@@ -7,7 +7,7 @@
 </p>
 
 # Description
-Project is done by  [**Mina Robir**](https://github.com/minarob23) and [**Ahmed Abdelelrahman**](https://github.com/ahmed-abdelelrahman)
+Project is done by  [**Mina Robir**](https://github.com/minarob23) and [**Ahmed Abdelrahman**](https://github.com/ahmed-abdelelrahman)
 
 # Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -127,7 +127,7 @@ git shortlog -se \
   ```
 ## Contributors :
 * [**Mina Robir**](https://github.com/minarob23)
-* [**Ahmed Abdelelrahman**](https://github.com/ahmed-abdelelrahman)
+* [**Ahmed Abdelrahman**](https://github.com/ahmed-abdelelrahman)
 
 ## Acknowledgments :
 - The creators of the C language.
