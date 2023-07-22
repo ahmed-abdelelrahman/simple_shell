@@ -187,6 +187,18 @@ int my_alias(info_t *);
 ssize_t get_input(info_t *);
 int custom_getline(info_t *, char **, size_t *);
 void sigint_handler(int);
+ssize_t custom_input_buf(info_t *info, char **buf, size_t *len);
+ssize_t custom_get_input(info_t *info);
+ssize_t custom_read_buf(info_t *info, char *buf, size_t *i);
+int custom_getline(info_t *info, char **ptr, size_t *length);
+void custom_sigintHandler(__attribute__((unused))int sig_num);
+int custom_puts(const char *str);
+char *custom_strchr(const char *s, int c);
+char *custom_strncpy(char *dest, const char *src, size_t n);
+char *custom_strncat(char *dest, const char *src, size_t n);
+void *custom_realloc(void *ptr, size_t old_size, size_t new_size);
+void custom_free(void *ptr);
+size_t custom_strlen(const char *s);
 
 /* my_getinfo.c */
 void clear_info(info_t *);
