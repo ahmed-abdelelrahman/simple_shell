@@ -199,6 +199,9 @@ char *custom_strncat(char *dest, const char *src, size_t n);
 void *custom_realloc(void *ptr, size_t old_size, size_t new_size);
 void custom_free(void *ptr);
 size_t custom_strlen(const char *s);
+void check_chain(info_t *info, char *buf, size_t *j, size_t i, size_t len);
+int is_chain(info_t *info, char *buf, size_t *j);
+
 
 /* my_getinfo.c */
 void clear_info(info_t *);
