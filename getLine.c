@@ -166,6 +166,6 @@ void custom_sigintHandler(__attribute__((unused))int sig_num)
 {
 	custom_puts("\n");
 	custom_puts("$ ");
-	_putchar(BUF_FLUSH);
+	putchar(BUF_FLUSH);
 }
 
