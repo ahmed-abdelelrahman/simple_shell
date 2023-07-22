@@ -57,7 +57,7 @@ ssize_t custom_get_input(info_t *info)
 	ssize_t r = 0;
 	char **buf_p = &(info->arg), *p;
 
-	_putchar(BUF_FLUSH);
+	putchar(BUF_FLUSH);
 	r = custom_input_buf(info, &buf, &len);
 	if (r == -1) /* EOF */
 		return (-1);
