@@ -57,7 +57,7 @@ ssize_t custom_get_input(info_t *info)
 	ssize_t r = 0;
 	char **buf_p = &(info->arg), *p;
 
-	putchar(BUF_FLUSH);
+	_putchar(BUF_FLUSH);
 	r = custom_input_buf(info, &buf, &len);
 	if (r == -1) /* EOF */
 		return (-1);
@@ -137,12 +137,12 @@ int custom_getline(info_t *info, char **ptr, size_t *length)
 
 	c = custom_strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = custom_read_buf(p, s, s ? s + k : k + 1);
+	new_p = custom_realloc(p, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? custom_free(p), -1 : -1);
 
 	if (s)
-		custom_get_input(new_p, buf + i, k - i);
+		custom_strncat(new_p, buf + i, k - i);
 	else
 		custom_strncpy(new_p, buf + i, k - i + 1);
 
@@ -164,8 +164,8 @@ int custom_getline(info_t *info, char **ptr, size_t *length)
  */
 void custom_sigintHandler(__attribute__((unused))int sig_num)
 {
-	custom_input_buf("\n");
-	custom_input_buf("$ ");
-	putchar(BUF_FLUSH);
+	custom_puts("\n");
+	custom_puts("$ ");
+	_putchar(BUF_FLUSH);
 }
 
