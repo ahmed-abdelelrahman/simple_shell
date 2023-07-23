@@ -165,7 +165,7 @@ int free_block(void **);
 
 /* my_atoi.c */
 int is_interactive(info_t *);
-int is_delimiter(char, char *)
+int is_delimiter(char, char *);
 int is_alpha(int);
 int my_atoi(char *);
 
