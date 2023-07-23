@@ -18,7 +18,7 @@ int custom_myexit(info_t *info)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
-			_eputs(info->argv[1]);
+			puts(info->argv[1]);
 			_eputchar('\n');
 			return (1);
 		}
