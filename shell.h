@@ -135,10 +135,10 @@ void print_string(char *);
 int print_char(char);
 
 /* my_string.c */
-int string_length(char *);
-int compare_strings(char *, char *);
-char *starts_with(const char *, const char *);
-char *string_concat(char *, char *);
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+int starts_with(const char *haystack, const char *needle);
+char *_strcat(char *dest, char *src);
 
 /* my_string1.c */
 char *string_copy(char *, char *);
