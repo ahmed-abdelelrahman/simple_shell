@@ -164,10 +164,10 @@ void *reallocate_memory(void *, unsigned int, unsigned int);
 int free_block(void **);
 
 /* my_atoi.c */
-int is_interactive(info_t *info);
-int is_delimiter(char c, char *delim)
-int is_alpha(int c);
-int my_atoi(char *s);
+int is_interactive(info_t *);
+int is_delimiter(char, char *)
+int is_alpha(int);
+int my_atoi(char *);
 
 /* my_errors1.c */
 int error_atoi(char *);
