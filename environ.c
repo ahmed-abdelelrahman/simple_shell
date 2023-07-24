@@ -1,6 +1,26 @@
 #include "shell.h"
 
 /**
+ * starts_with - checks if a string starts with a prefix
+ * @str: the string to check
+ * @prefix: the prefix to look for
+ *
+ * Return: pointer to the location of prefix within str, or NULL if not found
+ */
+char *starts_with(const char *str, const char *prefix)
+{
+	size_t i;
+
+	for (i = 0; prefix[i]; i++)
+	{
+		if (str[i] != prefix[i])
+			return (NULL);
+	}
+
+	return ((char *)str + i);
+}
+
+/**
  * my_print_env - prints the current environment variables
  * @info: Structure containing potential arguments. Used to maintain
  *         constant function prototype.
@@ -88,24 +108,4 @@ int initialize_env_list(info_t *info)
 		add_node_end(&node, environ[i], 0);
 	info->env = node;
 	return (0);
-}
-
-/**
- * starts_with - checks if a string starts with a prefix
- * @str: the string to check
- * @prefix: the prefix to look for
- *
- * Return: pointer to the location of prefix within str, or NULL if not found
- */
-char *starts_with(const char *str, const char *prefix)
-{
-	size_t i;
-
-	for (i = 0; prefix[i]; i++)
-	{
-		if (str[i] != prefix[i])
-			return (NULL);
-	}
-
-	return ((char *)str + i);
 }
