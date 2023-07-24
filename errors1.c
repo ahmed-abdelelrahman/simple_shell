@@ -53,16 +53,16 @@ void print_error(info_t *info, char *estr)
  */
 int printf(int input, int fd)
 {
-	int (*___putchar)(char) = __putchar;
+	int (*____putchar)(char) = ___putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		___putchar = __putchar;
+		____putchar = ___putchar;
 	if (input < 0)
 	{
 		_abs_ = -input;
-		___putchar('-');
+		____putchar('-');
 		count++;
 	}
 	else
@@ -72,12 +72,12 @@ int printf(int input, int fd)
 	{
 		if (_abs_ / i)
 		{
-			___putchar('0' + current / i);
+			____putchar('0' + current / i);
 			count++;
 		}
 		current %= i;
 	}
-	___putchar('0' + current);
+	____putchar('0' + current);
 	count++;
 
 	return (count);
