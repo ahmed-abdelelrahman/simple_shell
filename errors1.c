@@ -37,14 +37,9 @@ int _erratoi(char *s)
  */
 void print_error(info_t *info, char *estr)
 {
-	puts(info->fname);
-	puts(": ");
-	printf(info->line_count, STDERR_FILENO);
-	puts(": ");
-	puts(info->argv[0]);
-	puts(": ");
-	puts(estr);
+	printf("%s: %u: %s: %s", info->fname, info->line_count, info->argv[0], estr);
 }
+
 
 /**
  * print_d - function prints a decimal (integer) number (base 10)
