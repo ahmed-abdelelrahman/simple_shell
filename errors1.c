@@ -35,34 +35,34 @@ int myatoi(char *s)
  */
 void print_error(info_t *info, char *estr)
 {
-	_eputs(info->fname);
-	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
+	puts(info->fname);
+	puts(": ");
+	printf(info->line_count, STDERR_FILENO);
+	puts(": ");
+	puts(info->argv[0]);
+	puts(": ");
+	puts(estr);
 }
 
 /**
- * print_d - function prints a decimal (integer) number (base 10)
+ * printf - function prints a decimal (integer) number (base 10)
  * @input: the input
  * @fd: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
-int print_d(int input, int fd)
+int printf(int input, int fd)
 {
-	int (*__putchar)(char) = _putchar;
+	int (*___putchar)(char) = __putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
+		___putchar = __putchar;
 	if (input < 0)
 	{
 		_abs_ = -input;
-		__putchar('-');
+		___putchar('-');
 		count++;
 	}
 	else
@@ -72,12 +72,12 @@ int print_d(int input, int fd)
 	{
 		if (_abs_ / i)
 		{
-			__putchar('0' + current / i);
+			___putchar('0' + current / i);
 			count++;
 		}
 		current %= i;
 	}
-	__putchar('0' + current);
+	___putchar('0' + current);
 	count++;
 
 	return (count);
