@@ -22,7 +22,7 @@ int custom_myexit(info_t *info)
 			putchar('\n');
 			return 1;
 		}
-		info->err_num = error_atoi(info->argv[1]);
+		info->err_num = _erratoi(info->argv[1]);
 		return -2;
 	}
 
