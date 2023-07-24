@@ -13,17 +13,15 @@ int _erratoi(char *s)
 
 	if (*s == '+')
 		s++;
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
+	for (i = 0; s[i] != '\0'; i++) {
+		if (s[i] >= '0' && s[i] <= '9') {
 			result *= 10;
 			result += (s[i] - '0');
 			if (result > INT_MAX)
 				return (-1);
-		}
-		else
+		} else {
 			return (-1);
+		}
 	}
 	return (result);
 }
@@ -59,14 +57,13 @@ int print_d(int input, int fd)
 
 	if (fd == STDERR_FILENO)
 		__putchar = _eputchar;
-	if (input < 0)
-	{
+	if (input < 0) {
 		_abs_ = -input;
 		__putchar('-');
 		count++;
-	}
-	else
+	} else {
 		_abs_ = input;
+	}
 	current = _abs_;
 	for (i = 1000000000; i > 1; i /= 10)
 	{
@@ -98,8 +95,7 @@ char *convert_number(long int num, int base, int flags)
 	char *ptr;
 	unsigned long n = num;
 
-	if (!(flags & CONVERT_UNSIGNED) && num < 0)
-	{
+	if (!(flags & CONVERT_UNSIGNED) && num < 0) {
 		n = -num;
 		sign = '-';
 	}
@@ -107,8 +103,7 @@ char *convert_number(long int num, int base, int flags)
 	ptr = &buffer[49];
 	*ptr = '\0';
 
-	do
-	{
+	do {
 		*--ptr = array[n % base];
 		n /= base;
 	} while (n != 0);
@@ -127,10 +122,8 @@ void remove_comments(char *buf)
 {
 	int i;
 
-	for (i = 0; buf[i] != '\0'; i++)
-	{
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
-		{
+	for (i = 0; buf[i] != '\0'; i++) {
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' ')) {
 			buf[i] = '\0';
 			break;
 		}
