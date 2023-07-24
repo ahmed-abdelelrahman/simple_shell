@@ -1,19 +1,19 @@
 #include "shell.h"
 
 /**
- * myatoi - converts a string to an integer
+ * _erratoi - converts a string to an integer
  * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  *       -1 on error
  */
-int myatoi(char *s)
+int _erratoi(char *s)
 {
 	int i = 0;
-	long int result = 0;
+	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;
-	for (i = 0; s[i] != '\0'; i++)
+		s++;  /* TODO: why does this make main return 255? */
+	for (i = 0;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
@@ -25,13 +25,15 @@ int myatoi(char *s)
 		else
 			return (-1);
 	}
-	return ((int)result);
+	return (result);
 }
 
 /**
  * print_error - prints an error message
  * @info: the parameter & return info struct
  * @estr: string containing specified error type
+ * Return: 0 if no numbers in string, converted number otherwise
+ *        -1 on error
  */
 void print_error(info_t *info, char *estr)
 {
@@ -45,24 +47,24 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * printf - function prints a decimal (integer) number (base 10)
+ * print_d - function prints a decimal (integer) number (base 10)
  * @input: the input
  * @fd: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
-int printf(int input, int fd)
+int print_d(int input, int fd)
 {
-	int (*____putchar)(char) = ___putchar;
+	int (*__putchar)(char) = __putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		____putchar = ___putchar;
+		__putchar = __putchar;
 	if (input < 0)
 	{
 		_abs_ = -input;
-		____putchar('-');
+		__putchar('-');
 		count++;
 	}
 	else
@@ -72,12 +74,12 @@ int printf(int input, int fd)
 	{
 		if (_abs_ / i)
 		{
-			____putchar('0' + current / i);
+			__putchar('0' + current / i);
 			count++;
 		}
 		current %= i;
 	}
-	____putchar('0' + current);
+	__putchar('0' + current);
 	count++;
 
 	return (count);
@@ -103,13 +105,13 @@ char *convert_number(long int num, int base, int flags)
 	{
 		n = -num;
 		sign = '-';
+
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
-	do
-	{
+	do	{
 		*--ptr = array[n % base];
 		n /= base;
 	} while (n != 0);
@@ -122,6 +124,8 @@ char *convert_number(long int num, int base, int flags)
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
+ *
+ * Return: Always 0;
  */
 void remove_comments(char *buf)
 {
