@@ -170,9 +170,9 @@ int is_alpha(int);
 int my_atoi(char *);
 
 /* my_errors1.c */
-int error_atoi(char *);
+int _erratoi(char *);
 void print_error(info_t *, char *);
-int print_decimal(int, int);
+int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
