@@ -216,7 +216,6 @@ int my_environment(info_t *);
 int my_setenv(info_t *);
 int my_unsetenv(info_t *);
 int populate_environment_list(info_t *);
-char *starts_with(const char *str, const char *prefix);
 
 /* my_getenv.c */
 char **get_environment_variables(info_t *);
