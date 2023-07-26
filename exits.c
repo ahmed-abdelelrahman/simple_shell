@@ -69,6 +69,4 @@ char *_custom_strchr(const char *s, char c)
 		if (*s == c)
 			return (char *)s;
 	} while (*s++ != '\0');
-
-	return NULL; // Corrected the return statement
 }
