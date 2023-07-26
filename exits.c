@@ -65,12 +65,10 @@ char *_custom_strncat(char *dest, const char *src, int n)
  */
 char *_custom_strchr(const char *s, char c)
 {
-	do
-	{
+	do {
 		if (*s == c)
-			return (char *)s;
+			return (s);
 	} while (*s++ != '\0');
 
 	return (NULL);
 }
-
