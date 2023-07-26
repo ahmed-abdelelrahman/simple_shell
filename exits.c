@@ -67,6 +67,6 @@ char *_custom_strchr(const char *s, char c)
 {
 	do {
 		if (*s == c)
-			return (char *)s;
+			return (s);
 	} while (*s++ != '\0');
 }
