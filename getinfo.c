@@ -24,14 +24,14 @@ void set_info(info_t *info, char **av)
 	info->fname = av[0];
 	if (info->arg)
 	{
-		info->argv = strtow(info->arg, " \t"); // Assuming strtow is defined in your_custom_header.h
+		info->argv = strtow(info->arg, " \t");
 		if (!info->argv)
 		{
 
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
-				info->argv[0] = _strdup(info->arg); // Assuming _strdup is defined in your_custom_header.h
+				info->argv[0] = _strdup(info->arg);
 				info->argv[1] = NULL;
 			}
 		}
@@ -40,7 +40,7 @@ void set_info(info_t *info, char **av)
 		info->argc = i;
 
 		replace_alias(info);
-		replace_vars(info); // Assuming replace_vars is defined in your_custom_header.h
+		replace_vars(info);
 	}
 }
 
@@ -51,7 +51,7 @@ void set_info(info_t *info, char **av)
  */
 void free_info(info_t *info, int all)
 {
-	ffree(info->argv); // Assuming ffree is defined in your_custom_header.h
+	ffree(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
 	if (all)
@@ -64,11 +64,11 @@ void free_info(info_t *info, int all)
 			free_list(&(info->history));
 		if (info->alias)
 			free_list(&(info->alias));
-		ffree(info->environ); // Assuming ffree is defined in your_custom_header.h
+		ffree(info->environ);
 			info->environ = NULL;
-		bfree((void **)info->cmd_buf); // Assuming bfree is defined in your_custom_header.h
+		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
 			close(info->readfd);
-		_putchar(BUF_FLUSH); // Assuming _putchar is defined in your_custom_header.h
+		_putchar(BUF_FLUSH);
 	}
 }
