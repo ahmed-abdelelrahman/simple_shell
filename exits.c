@@ -1,14 +1,13 @@
 #include "shell.h"
 
 /**
- * custom_strncpy - copies a string
- * @dest: the destination buffer to copy to
- * @src: the source string to copy from
- * @n: the maximum number of characters to copy
- *
- * Return: a pointer to the destination buffer
+ **_strncpy - copies a string
+ *@dest: the destination string to be copied to
+ *@src: the source string
+ *@n: the amount of characters to be copied
+ *Return: the concatenated string
  */
-char *custom_strncpy(char *dest, const char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -32,13 +31,13 @@ char *custom_strncpy(char *dest, const char *src, int n)
 }
 
 /**
- * custom_strncat - concatenates two strings
- * @dest: the first string
- * @src: the second string
- * @n: the maximum number of bytes to be used
- * Return: the concatenated string
+ **_strncat - concatenates two strings
+ *@dest: the first string
+ *@src: the second string
+ *@n: the amount of bytes to be maximally used
+ *Return: the concatenated string
  */
-char *custom_strncat(char *dest, const char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -59,19 +58,17 @@ char *custom_strncat(char *dest, const char *src, int n)
 }
 
 /**
- * custom_strchr - locates a character in a string
- * @s: the string to be parsed
- * @c: the character to look for
- * Return: a pointer to the first occurrence of the character in the string,
- *         or NULL if the character is not found
+ **_strchr - locates a character in a string
+ *@s: the string to be parsed
+ *@c: the character to look for
+ *Return: (s) a pointer to the memory area s
  */
-char *custom_strchr(const char *s, char c)
+char *_strchr(char *s, char c)
 {
 	do {
 		if (*s == c)
-			return ((char *)s);
+			return (s);
 	} while (*s++ != '\0');
 
 	return (NULL);
 }
-
