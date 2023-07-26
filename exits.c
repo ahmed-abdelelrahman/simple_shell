@@ -7,7 +7,7 @@
  * @n: the amount of characters to be copied
  * Return: the concatenated string
  */
-char *_custom_strncpy(char *dest, const char *src, int n)
+char *_custom_strncpy(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -37,7 +37,7 @@ char *_custom_strncpy(char *dest, const char *src, int n)
  * @n: the amount of bytes to be maximally used
  * Return: the concatenated string
  */
-char *_custom_strncat(char *dest, const char *src, int n)
+char *_custom_strncat(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -63,7 +63,7 @@ char *_custom_strncat(char *dest, const char *src, int n)
  * @c: the character to look for
  * Return: a pointer to the memory area s or NULL if not found
  */
-char *_custom_strchr(const char *s, char c)
+char *_custom_strchr(char *s, char c)
 {
 	do {
 		if (*s == c)
