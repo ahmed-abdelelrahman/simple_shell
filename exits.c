@@ -1,75 +1,59 @@
 #include "shell.h"
 
 /**
- * _custom_strncpy - copies a string
- * @dest: the destination string to be copied to
- * @src: the source string
- * @n: the amount of characters to be copied
- * Return: the concatenated string
+ * exit_shell - Exit the shell
+ * @info: The parameter & return info struct
+ * Return: The exit status
  */
-char *_custom_strncpy(char *dest, const char *src, int n)
+int exit_shell(info_t *info)
 {
-    int i, j;
-    char *s = dest;
-
-    i = 0;
-    while (src[i] != '\0' && i < n - 1)
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    if (i < n)
-    {
-        j = i;
-        while (j < n)
-        {
-            dest[j] = '\0';
-            j++;
-        }
-    }
-    return (s);
+	return (info->status);
 }
 
 /**
- * _custom_strncat - concatenates two strings
- * @dest: the first string
- * @src: the second string
- * @n: the amount of bytes to be maximally used
- * Return: the concatenated string
+ * _atoi - Converts a string to an integer
+ * @s: The string to be converted
+ * Return: The converted integer if successful, -1 on error
  */
-char *_custom_strncat(char *dest, const char *src, int n)
+int _atoi(char *s)
 {
-    int i, j;
-    char *s = dest;
+	int i = 0;
+	int sign = 1;
+	unsigned int result = 0;
 
-    i = 0;
-    j = 0;
-    while (dest[i] != '\0')
-        i++;
-    while (src[j] != '\0' && j < n)
-    {
-        dest[i] = src[j];
-        i++;
-        j++;
-    }
-    if (j < n)
-        dest[i] = '\0';
-    return (s);
+	if (*s == '-')
+	{
+		sign = -1;
+		s++;
+	}
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			result *= 10;
+			result += (s[i] - '0');
+			if (result > INT_MAX)
+				return (-1);
+		}
+		else
+			return (-1);
+	}
+
+	return (result * sign);
 }
 
 /**
- * _custom_strchr - locates a character in a string
- * @s: the string to be parsed
- * @c: the character to look for
- * Return: a pointer to the memory area s or NULL if not found
+ * _env - Print the environment
+ * @info: The parameter & return info struct
+ * Return: Always return 0
  */
-char *_custom_strchr(const char *s, char c)
+int _env(__attribute__((unused)) info_t *info)
 {
-    do
-    {
-        if (*s == c)
-            return (char *)s;
-    } while (*s++ != '\0');
+	int i;
 
-    return (NULL);
+	for (i = 0; environ[i] != NULL; i++)
+		_puts(environ[i]);
+
+	return (0);
 }
