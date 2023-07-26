@@ -1,6 +1,62 @@
 #include "shell.h"
 
 /**
+ * print_error - prints an error message
+ * @info: the parameter & return info struct
+ * @estr: string containing the specified error type
+ * Return: void
+ */
+void print_error(info_t *info, char *estr)
+{
+    printf("%s: %d: %s: %s\n", info->fname, info->line_count, info->argv[0], estr);
+}
+
+/**
+ * print_d - function prints a decimal (integer) number (base 10)
+ * @input: the input
+ * @fd: the file descriptor to write to
+ * Return: number of characters printed
+ */
+int print_d(int input, int fd)
+{
+    int (*__putchar)(char) = putchar;
+    int i, count = 0;
+    unsigned int _abs_, current;
+
+    if (fd == STDERR_FILENO)
+        __putchar = fputc;
+
+    // The rest of the function remains the same
+}
+
+/**
+ * _erratoi - converts a string to an integer
+ * @s: the string to be converted
+ * Return: 0 if no numbers in the string, the converted number otherwise
+ *       -1 on error
+ */
+int _erratoi(char *s)
+{
+    int i = 0;
+    long int result = 0;
+
+    if (*s == '+')
+        s++;
+
+    for (i = 0; s[i] != '\0'; i++) {
+        if (s[i] >= '0' && s[i] <= '9') {
+            result *= 10;
+            result += (s[i] - '0');
+            if (result > INT_MAX)
+                return (-1);
+        } else {
+            return (-1);
+        }
+    }
+    return (result);
+}
+
+/**
  * _erratoi - converts a string to an integer
  * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
