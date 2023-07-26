@@ -1,5 +1,8 @@
 #include "shell.h"
 
+/* Function prototype */
+void _eputs(const char *str);
+
 /**
  * _erratoi - converts a string to an integer
  * @s: the string to be converted
