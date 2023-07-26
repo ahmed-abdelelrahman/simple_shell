@@ -10,31 +10,31 @@
  */
 history_t *add_history_node(history_t **history_head, const char *command, int index)
 {
-	history_t *new_node;
+    history_t *new_node;
 
-	if (!history_head)
-		return (NULL);
+    if (!history_head)
+        return (NULL);
 
-	new_node = malloc(sizeof(history_t));
-	if (!new_node)
-		return (NULL);
+    new_node = malloc(sizeof(history_t));
+    if (!new_node)
+        return (NULL);
 
-	_memset((void *)new_node, 0, sizeof(history_t));
-	new_node->index = index;
+    memset((void *)new_node, 0, sizeof(history_t));
+    new_node->index = index;
 
-	if (command)
-	{
-		new_node->command = _strdup(command);
-		if (!new_node->command)
-		{
-			free(new_node);
-			return (NULL);
-		}
-	}
+    if (command)
+    {
+        new_node->command = strdup(command);
+        if (!new_node->command)
+        {
+            free(new_node);
+            return (NULL);
+        }
+    }
 
-	new_node->next = *history_head;
-	*history_head = new_node;
-	return (new_node);
+    new_node->next = *history_head;
+    *history_head = new_node;
+    return (new_node);
 }
 
 /**
