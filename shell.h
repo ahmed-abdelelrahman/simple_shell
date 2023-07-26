@@ -195,6 +195,14 @@ void sigintHandler(int);
 void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
+char **custom_strtow(const char *str, const char *delims);
+char *custom_strdup(const char *str);
+void custom_replace_alias(info_t *info);
+void custom_replace_vars(info_t *info);
+void custom_ffree(char **array);
+void custom_free_list(list_t **head);
+void custom_bfree(void **ptr);
+void custom_putchar(char c);
 
 /* my_environ.c */
 char *get_environment(info_t *, const char *);
