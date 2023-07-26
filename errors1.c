@@ -38,7 +38,7 @@ void print_error(info_t *info, char *estr)
 	puts(info->fname);
 	puts(": ");
 	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
+	puts(": ");
 	_eputs(info->argv[0]);
 	_eputs(": ");
 	_eputs(estr);
