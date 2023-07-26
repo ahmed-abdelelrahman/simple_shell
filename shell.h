@@ -147,9 +147,9 @@ void print_string(char *);
 int print_character(char);
 
 /* my_exits.c */
-char *string_copy_n(char *, char *, int);
-char *string_concat_n(char *, char *, int);
-char *find_character(char *, char);
+char *_custom_strncpy(char *, const char *, int)
+char *_custom_strncat(char *, const char , int)
+char *_custom_strchr(const char *, char)
 
 /* my_tokenizer.c */
 char **tokenize_string(char *, char *);
