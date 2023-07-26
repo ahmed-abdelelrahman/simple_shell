@@ -39,9 +39,9 @@ void print_error(info_t *info, char *estr)
 	puts(": ");
 	print_d(info->line_count, STDERR_FILENO);
 	puts(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
+	puts(info->argv[0]);
+	puts(": ");
+	puts(estr);
 }
 
 /**
