@@ -69,4 +69,6 @@ char *_custom_strchr(const char *s, char c)
 		if (*s == c)
 			return (char *)s;
 	} while (*s++ != '\0');
+	
+	return (NULL); // Adding the missing return statement with parentheses
 }
