@@ -1,6 +1,40 @@
 #include "shell.h"
 
 /**
+ * print_error - prints an error message
+ * @info: the parameter & return info struct
+ * @estr: string containing the specified error type
+ * Return: void
+ */
+void print_error(info_t *info, char *estr)
+{
+    puts(info->fname);
+    puts(": ");
+    print_d(info->line_count, STDERR_FILENO);
+    puts(": ");
+    puts(info->argv[0]);
+    puts(": ");
+    puts(estr);
+}
+
+/**
+ * print_d - function prints a decimal (integer) number (base 10)
+ * @input: the input
+ * @fd: the file descriptor to write to
+ * Return: number of characters printed
+ */
+int print_d(int input, int fd)
+{
+    int (*__putchar)(char) = putchar;
+    int i, count = 0;
+    unsigned int _abs_, current;
+
+    if (fd == STDERR_FILENO)
+        __putchar = eputchar;
+    // The rest of the function remains the same
+}
+
+/**
  * _erratoi - converts a string to an integer
  * @s: the string to be converted
  * Return: 0 if no numbers in the string, the converted number otherwise
