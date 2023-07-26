@@ -51,6 +51,32 @@ typedef struct liststr
 } list_t;
 
 /**
+ * struct history_s - singly linked list for history
+ * @index: the index field
+ * @command: the command string
+ * @next: points to the next node
+ */
+typedef struct history_s
+{
+	int index;
+	char *command;
+	struct history_s *next;
+} history_t;
+
+/**
+ * struct node_s - singly linked list for nodes
+ * @index: the index field
+ * @data: the data string
+ * @next: points to the next node
+ */
+typedef struct node_s
+{
+	int index;
+	char *data;
+	struct node_s *next;
+} node_t;
+
+/**
  *struct passinfo - contains pseudo-arguements to pass into a function,
  *		allowing uniform prototype for function pointer struct
  *@arg: a string generated from getline containing arguements
