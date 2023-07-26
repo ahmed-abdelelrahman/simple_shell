@@ -6,27 +6,27 @@
  *
  * Return: The converted integer if successful, -1 on error
  */
-int my_atoi(char *str)
+int _erratoi(char *s)
 {
     int i = 0;
     unsigned long int result = 0;
 
-    if (*str == '+')
-        str++;
+    if (*s == '+')
+        s++;
 
-    for (i = 0; str[i] != '\0'; i++)
+    for (i = 0; s[i] != '\0'; i++)
     {
-        if (str[i] >= '0' && str[i] <= '9')
+        if (s[i] >= '0' && s[i] <= '9')
         {
             result *= 10;
-            result += (str[i] - '0');
+            result += (s[i] - '0');
             if (result > INT_MAX)
                 return -1;
         }
         else
             return -1;
     }
-    return (int)result;
+    return (result);
 }
 
 /**
@@ -36,7 +36,13 @@ int my_atoi(char *str)
  */
 void print_error(info_t *info, char *estr)
 {
-    printf("%s: %d: %s: %s\n", info->fname, info->line_count, info->argv[0], estr);
+    _eputs(info->fname);
+    _eputs(": ");
+    print_d(info->line_count, STDERR_FILENO);
+    _eputs(": ");
+    _eputs(info->argv[0]);
+    _eputs(": ");
+    _eputs(estr);
 }
 
 /**
