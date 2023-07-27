@@ -241,6 +241,8 @@ int build_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
 
 /* my_lists.c */
+void *_memset(void *s, int c, size_t n);
+char *_strdup(const char *s);
 list_t *add_node_to_start(list_t **, const char *, int);
 list_t *add_node_to_end(list_t **, const char *, int);
 size_t print_list_data(const list_t *);
