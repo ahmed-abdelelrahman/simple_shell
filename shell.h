@@ -223,6 +223,7 @@ void custom_bfree(void **ptr);
 void custom_putchar(char c);
 
 /* my_environ.c */
+char *_getenv(info_t *info, const char *name);
 char *_getenv(info_t *, const char *);
 int _myenv(info_t *);
 int _mysetenv(info_t *);
