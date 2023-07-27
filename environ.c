@@ -1,122 +1,86 @@
 #include "shell.h"
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
- * my_print_env - prints the current environment variables
-=======
- * print_string - Traverse and print the strings in the linked list.
- * @head: Pointer to the head node of the linked list.
- */
-void print_string(const list_t *head) {
-    const list_t *current = head;
-    while (current) {
-        printf("%s\n", current->str);
-        current = current->next;
-    }
-}
-
-/**
- * starts_with - Check if a string starts with a given prefix.
- * @haystack: The input string to search.
- * @needle: The prefix to check for.
- *
- * Return: A pointer to the location where the prefix starts, or NULL if not found.
- */
-const char *starts_with(const char *haystack, const char *needle) {
-    size_t len_needle = strlen(needle);
-    while (*haystack) {
-        if (strncmp(haystack, needle, len_needle) == 0) {
-            return haystack;
-        }
-        haystack++;
-    }
-    return NULL;
-}
-
-/**
-=======
->>>>>>> 0eb1bd436fe03f94b0766d1214745d354c96890a
  * _myenv - prints the current environment
->>>>>>> 82d6624a7d62d15ead7f01d08f0d7102be4c22a3
  * @info: Structure containing potential arguments. Used to maintain
- *         constant function prototype.
+ *          constant function prototype.
  * Return: Always 0
  */
-int my_print_env(info_t *info)
+int _myenv(info_t *info)
 {
-	print_string(info->env);
+	print_list_str(info->env);
 	return (0);
 }
 
 /**
- * get_env_value - gets the value of an environment variable
+ * _getenv - gets the value of an environ variable
  * @info: Structure containing potential arguments. Used to maintain
- * @name: environment variable name
+ * @name: env var name
  *
- * Return: the value of the environment variable or NULL if not found
+ * Return: the value
  */
-char *get_env_value(info_t *info, const char *name)
+char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
-	char *value;
+	char *p;
 
 	while (node)
 	{
-		value = starts_with(node->str, name);
-		if (value && *value)
-			return (value);
+		p = starts_with(node->str, name);
+		if (p && *p)
+			return (p);
 		node = node->next;
 	}
 	return (NULL);
 }
 
 /**
- * my_set_env - Initialize a new environment variable or modify an existing one
+ * _mysetenv - Initialize a new environment variable,
+ *             or modify an existing one
  * @info: Structure containing potential arguments. Used to maintain
- *         constant function prototype.
- * Return: Always 0
+ *        constant function prototype.
+ *  Return: Always 0
  */
-int my_set_env(info_t *info)
+int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		puts("Incorrect number of arguments\n");
+		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (set_environment_variable(info, info->argv[1], info->argv[2]))
+	if (_setenv(info, info->argv[1], info->argv[2]))
 		return (0);
 	return (1);
 }
 
 /**
- * my_unset_env - Remove an environment variable
+ * _myunsetenv - Remove an environment variable
  * @info: Structure containing potential arguments. Used to maintain
- *            constant function prototype.
- * Return: Always 0
+ *        constant function prototype.
+ *  Return: Always 0
  */
-int my_unset_env(info_t *info)
+int _myunsetenv(info_t *info)
 {
 	int i;
 
 	if (info->argc == 1)
 	{
-		puts("Too few arguments.\n");
+		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i < info->argc; i++)
-		unset_environment_variable(info, info->argv[i]);
+	for (i = 1; i <= info->argc; i++)
+		_unsetenv(info, info->argv[i]);
 
 	return (0);
 }
 
 /**
- * initialize_env_list - populates env linked list with the current environment
+ * populate_env_list - populates env linked list
  * @info: Structure containing potential arguments. Used to maintain
- *           constant function prototype.
+ *          constant function prototype.
  * Return: Always 0
  */
-int initialize_env_list(info_t *info)
+int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
