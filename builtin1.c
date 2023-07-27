@@ -1,56 +1,6 @@
 #include "shell.h"
 
 /**
- * _strchr - Locate character in string
- * @s: Pointer to the string
- * @c: Character to locate
- *
- * Return: Pointer to the first occurrence of the character c in the string s,
- *         or NULL if the character is not found.
- */
-char *_strchr(char *s, char c)
-{
-	while (*s != '\0')
-	{
-		if (*s == c)
-			return (s);
-		s++;
-	}
-	if (*s == c)
-		return (s);
-	return (NULL);
-}
-
-/**
- * _putchar - Writes a character to the standard output (stdout)
- * @c: The character to be written
- *
- * Return: On success, the character written, otherwise EOF.
- */
-int _putchar(char c)
-{
-	return write(1, &c, 1);
-}
-
-/**
- * _puts - Writes the string to the standard output (stdout)
- * @str: The string to be written
- *
- * Return: On success, the number of characters written, otherwise EOF.
- */
-int _puts(char *str)
-{
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		_putchar(str[i]);
-		i++;
-	}
-	return i;
-}
-
-/**
  * _myhistory - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
@@ -104,7 +54,7 @@ int set_alias(info_t *info, char *str)
 		return (unset_alias(info, str));
 
 	unset_alias(info, str);
-	return (add_node_to_end(&(info->alias), str, 0) == NULL);
+	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
 
 /**
