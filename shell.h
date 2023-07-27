@@ -222,6 +222,8 @@ void custom_bfree(void **ptr);
 void custom_putchar(char c);
 
 /* my_environ.c */
+const char *starts_with(const char *haystack, const char *needle);
+void print_string(const list_t *head);
 char *_getenv(info_t *, const char *);
 int _myenv(info_t *);
 int _mysetenv(info_t *);
