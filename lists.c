@@ -11,11 +11,11 @@
 list_t *add_node(list_t **head, const char *str, int num)
 {
 	if (!head)
-		return NULL;
+		return (NULL);
 
 	list_t *new_node = malloc(sizeof(list_t));
 	if (!new_node)
-		return NULL;
+		return (NULL);
 
 	_memset((void *)new_node, 0, sizeof(list_t));
 	new_node->num = num;
@@ -26,13 +26,13 @@ list_t *add_node(list_t **head, const char *str, int num)
 		if (!new_node->str)
 		{
 			free(new_node);
-			return NULL;
+			return (NULL);
 		}
 	}
 
 	new_node->next = *head;
 	*head = new_node;
-	return new_node;
+	return (new_node);
 }
 
 /**
@@ -46,11 +46,11 @@ list_t *add_node(list_t **head, const char *str, int num)
 list_t *add_node_end(list_t **head, const char *str, int num)
 {
 	if (!head)
-		return NULL;
+		return (NULL);
 
 	list_t *new_node = malloc(sizeof(list_t));
 	if (!new_node)
-		return NULL;
+		return (NULL);
 
 	_memset((void *)new_node, 0, sizeof(list_t));
 	new_node->num = num;
@@ -61,7 +61,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 		if (!new_node->str)
 		{
 			free(new_node);
-			return NULL;
+			return (NULL);
 		}
 	}
 
@@ -79,7 +79,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 		node->next = new_node;
 	}
 
-	return new_node;
+	return (new_node);
 }
 
 /**
@@ -100,7 +100,7 @@ size_t print_list_str(const list_t *h)
 		i++;
 	}
 
-	return i;
+	return (i);
 }
 
 /**
@@ -113,7 +113,7 @@ size_t print_list_str(const list_t *h)
 int delete_node_at_index(list_t **head, unsigned int index)
 {
 	if (!head || !*head)
-		return 0;
+		return (0);
 
 	if (index == 0)
 	{
@@ -121,7 +121,7 @@ int delete_node_at_index(list_t **head, unsigned int index)
 		*head = (*head)->next;
 		free(node->str);
 		free(node);
-		return 1;
+		return (1);
 	}
 
 	list_t *prev_node = NULL;
@@ -135,14 +135,14 @@ int delete_node_at_index(list_t **head, unsigned int index)
 			prev_node->next = current_node->next;
 			free(current_node->str);
 			free(current_node);
-			return 1;
+			return (1);
 		}
 		i++;
 		prev_node = current_node;
 		current_node = current_node->next;
 	}
 
-	return 0;
+	return (0);
 }
 
 /**
