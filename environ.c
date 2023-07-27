@@ -1,7 +1,41 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
  * my_print_env - prints the current environment variables
+=======
+ * print_string - Traverse and print the strings in the linked list.
+ * @head: Pointer to the head node of the linked list.
+ */
+void print_string(const list_t *head) {
+    const list_t *current = head;
+    while (current) {
+        printf("%s\n", current->str);
+        current = current->next;
+    }
+}
+
+/**
+ * starts_with - Check if a string starts with a given prefix.
+ * @haystack: The input string to search.
+ * @needle: The prefix to check for.
+ *
+ * Return: A pointer to the location where the prefix starts, or NULL if not found.
+ */
+const char *starts_with(const char *haystack, const char *needle) {
+    size_t len_needle = strlen(needle);
+    while (*haystack) {
+        if (strncmp(haystack, needle, len_needle) == 0) {
+            return haystack;
+        }
+        haystack++;
+    }
+    return NULL;
+}
+
+/**
+ * _myenv - prints the current environment
+>>>>>>> 82d6624a7d62d15ead7f01d08f0d7102be4c22a3
  * @info: Structure containing potential arguments. Used to maintain
  *         constant function prototype.
  * Return: Always 0

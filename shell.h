@@ -222,11 +222,13 @@ void custom_bfree(void **ptr);
 void custom_putchar(char c);
 
 /* my_environ.c */
-char *get_environment(info_t *, const char *);
-int my_environment(info_t *);
-int my_setenv(info_t *);
-int my_unsetenv(info_t *);
-int populate_environment_list(info_t *);
+const char *starts_with(const char *haystack, const char *needle);
+void print_string(const list_t *head);
+char *_getenv(info_t *, const char *);
+int _myenv(info_t *);
+int _mysetenv(info_t *);
+int _myunsetenv(info_t *);
+int populate_env_list(info_t *);
 
 /* my_getenv.c */
 char **get_environment_variables(info_t *);
@@ -264,4 +266,3 @@ int replace_variables(info_t *);
 int replace_string(char **, char *);
 
 #endif
-
