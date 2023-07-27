@@ -51,32 +51,6 @@ typedef struct liststr
 } list_t;
 
 /**
- * struct history_s - singly linked list for history
- * @index: the index field
- * @command: the command string
- * @next: points to the next node
- */
-typedef struct history_s
-{
-	int index;
-	char *command;
-	struct history_s *next;
-} history_t;
-
-/**
- * struct node_s - singly linked list for nodes
- * @index: the index field
- * @data: the data string
- * @next: points to the next node
- */
-typedef struct node_s
-{
-	int index;
-	char *data;
-	struct node_s *next;
-} node_t;
-
-/**
  *struct passinfo - contains pseudo-arguements to pass into a function,
  *		allowing uniform prototype for function pointer struct
  *@arg: a string generated from getline containing arguements
@@ -252,7 +226,7 @@ int renumber_history(info_t *info);
 /* my_lists.c */
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_end(list_t **, const char *, int);
-size_t print_list_string(const list_t *);
+size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
