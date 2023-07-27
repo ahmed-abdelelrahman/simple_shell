@@ -10,19 +10,29 @@
  */
 list_t *add_node(list_t **head, const char *str, int num)
 {
-    if (!head)
-        return NULL;
+	if (!head)
+		return NULL;
 
-    list_t *new_node = malloc(sizeof(list_t));
-    if (!new_node)
-        return NULL;
+	list_t *new_node = malloc(sizeof(list_t));
+	if (!new_node)
+		return NULL;
 
-    new_node->num = num;
-    new_node->str = (str) ? _strdup(str) : NULL;
-    new_node->next = *head;
-    *head = new_node;
+	_memset((void *)new_node, 0, sizeof(list_t));
+	new_node->num = num;
 
-    return new_node;
+	if (str)
+	{
+		new_node->str = _strdup(str);
+		if (!new_node->str)
+		{
+			free(new_node);
+			return NULL;
+		}
+	}
+
+	new_node->next = *head;
+	*head = new_node;
+	return new_node;
 }
 
 /**
@@ -35,30 +45,41 @@ list_t *add_node(list_t **head, const char *str, int num)
  */
 list_t *add_node_end(list_t **head, const char *str, int num)
 {
-    if (!head)
-        return NULL;
+	if (!head)
+		return NULL;
 
-    list_t *new_node = malloc(sizeof(list_t));
-    if (!new_node)
-        return NULL;
+	list_t *new_node = malloc(sizeof(list_t));
+	if (!new_node)
+		return NULL;
 
-    new_node->num = num;
-    new_node->str = (str) ? _strdup(str) : NULL;
-    new_node->next = NULL;
+	_memset((void *)new_node, 0, sizeof(list_t));
+	new_node->num = num;
 
-    if (*head == NULL)
-    {
-        *head = new_node;
-    }
-    else
-    {
-        list_t *node = *head;
-        while (node->next)
-            node = node->next;
-        node->next = new_node;
-    }
+	if (str)
+	{
+		new_node->str = _strdup(str);
+		if (!new_node->str)
+		{
+			free(new_node);
+			return NULL;
+		}
+	}
 
-    return new_node;
+	new_node->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = new_node;
+	}
+	else
+	{
+		list_t *node = *head;
+		while (node->next)
+			node = node->next;
+		node->next = new_node;
+	}
+
+	return new_node;
 }
 
 /**
@@ -69,15 +90,15 @@ list_t *add_node_end(list_t **head, const char *str, int num)
  */
 size_t print_list_str(const list_t *h)
 {
-    size_t i = 0;
-    while (h)
-    {
-        _puts(h->str ? h->str : "(nil)");
-        _puts("\n");
-        h = h->next;
-        i++;
-    }
-    return i;
+	size_t i = 0;
+	while (h)
+	{
+		_puts(h->str ? h->str : "(nil)");
+		_puts("\n");
+		h = h->next;
+		i++;
+	}
+	return i;
 }
 
 /**
@@ -89,37 +110,37 @@ size_t print_list_str(const list_t *h)
  */
 int delete_node_at_index(list_t **head, unsigned int index)
 {
-    if (!head || !*head)
-        return 0;
+	if (!head || !*head)
+		return 0;
 
-    if (index == 0)
-    {
-        list_t *node = *head;
-        *head = (*head)->next;
-        free(node->str);
-        free(node);
-        return 1;
-    }
+	if (index == 0)
+	{
+		list_t *node = *head;
+		*head = (*head)->next;
+		free(node->str);
+		free(node);
+		return 1;
+	}
 
-    list_t *prev_node = NULL;
-    list_t *current_node = *head;
-    unsigned int i = 0;
+	list_t *prev_node = NULL;
+	list_t *current_node = *head;
+	unsigned int i = 0;
 
-    while (current_node)
-    {
-        if (i == index)
-        {
-            prev_node->next = current_node->next;
-            free(current_node->str);
-            free(current_node);
-            return 1;
-        }
-        i++;
-        prev_node = current_node;
-        current_node = current_node->next;
-    }
+	while (current_node)
+	{
+		if (i == index)
+		{
+			prev_node->next = current_node->next;
+			free(current_node->str);
+			free(current_node);
+			return 1;
+		}
+		i++;
+		prev_node = current_node;
+		current_node = current_node->next;
+	}
 
-    return 0;
+	return 0;
 }
 
 /**
@@ -130,17 +151,17 @@ int delete_node_at_index(list_t **head, unsigned int index)
  */
 void free_list(list_t **head_ptr)
 {
-    if (!head_ptr || !*head_ptr)
-        return;
+	if (!head_ptr || !*head_ptr)
+		return;
 
-    list_t *node = *head_ptr;
-    while (node)
-    {
-        list_t *next_node = node->next;
-        free(node->str);
-        free(node);
-        node = next_node;
-    }
+	list_t *node = *head_ptr;
+	while (node)
+	{
+		list_t *next_node = node->next;
+		free(node->str);
+		free(node);
+		node = next_node;
+	}
 
-    *head_ptr = NULL;
+	*head_ptr = NULL;
 }
