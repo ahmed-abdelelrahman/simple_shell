@@ -89,3 +89,21 @@ int initialize_env_list(info_t *info)
 	info->env = node;
 	return (0);
 }
+
+char *starts_with(const char *haystack, const char *needle) {
+    size_t len_needle = strlen(needle);
+    while (*haystack) {
+        if (strncmp(haystack, needle, len_needle) == 0) {
+            return (char *)haystack;
+        }
+        haystack++;
+    }
+    return NULL;
+}
+
+void print_string(const list_t *head) {
+    while (head) {
+        printf("%s\n", head->str);
+        head = head->next;
+    }
+}
