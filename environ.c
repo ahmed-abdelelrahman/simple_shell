@@ -8,7 +8,7 @@
  */
 int _myenv(info_t *info)
 {
-	print_list_str(info->env);
+	print_list_data(info->env);
 	return (0);
 }
 
@@ -69,7 +69,7 @@ int _myunsetenv(info_t *info)
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+		unsetenv(info, info->argv[i]);
 
 	return (0);
 }
@@ -86,7 +86,7 @@ int populate_env_list(info_t *info)
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
+		add_node_to_end(&node, environ[i], 0);
 	info->env = node;
 	return (0);
 }
