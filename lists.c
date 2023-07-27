@@ -17,11 +17,11 @@ list_t *add_node_to_start(list_t **head, const char *str, int num)
 	new_head = malloc(sizeof(list_t));
 	if (!new_head)
 		return (NULL);
-	_memset((void *)new_head, 0, sizeof(list_t));
+	memset((void *)new_head, 0, sizeof(list_t));
 	new_head->num = num;
 	if (str)
 	{
-		new_head->str = _strdup(str);
+		new_head->str = strdup(str);
 		if (!new_head->str)
 		{
 			free(new_head);
@@ -86,7 +86,7 @@ size_t print_list_data(const list_t *h)
 
 	while (h)
 	{
-		_puts(h->str ? h->str : "(nil)");
+		puts(h->str ? h->str : "(nil)");
 		_puts("\n");
 		h = h->next;
 		i++;
