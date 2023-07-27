@@ -8,29 +8,31 @@
  *
  * Return: size of list
  */
-list_t *add_node_to_start(list_t **head, const char *str, int num)
+list_t *add_node_to_start(list_t **head, const char *data, int index)
 {
-	list_t *new_head;
-
 	if (!head)
 		return (NULL);
-	new_head = malloc(sizeof(list_t));
-	if (!new_head)
+
+	list_t *new_node = create_node(data, index);
+	if (!new_node)
 		return (NULL);
-	_memset((void *)new_head, 0, sizeof(list_t));
-	new_head->num = num;
-	if (str)
+
+	memset((void *)new_node, 0, sizeof(list_t));
+	new_node->num = index;
+
+	if (data)
 	{
-		new_head->str = _strdup(str);
-		if (!new_head->str)
+		new_node->data = strdup(data);
+		if (!new_node->data)
 		{
-			free(new_head);
+			free(new_node);
 			return (NULL);
 		}
 	}
-	new_head->next = *head;
-	*head = new_head;
-	return (new_head);
+
+	new_node->next = *head;
+	*head = new_node;
+	return (new_node);
 }
 
 /**
@@ -41,36 +43,27 @@ list_t *add_node_to_start(list_t **head, const char *str, int num)
  *
  * Return: size of list
  */
-list_t *add_node_to_end(list_t **head, const char *str, int num)
+list_t *add_node_to_end(list_t **head, const char *data, int index)
 {
-	list_t *new_node, *node;
-
 	if (!head)
 		return (NULL);
 
-	node = *head;
-	new_node = malloc(sizeof(list_t));
+	list_t *new_node = create_node(data, index);
 	if (!new_node)
 		return (NULL);
-	_memset((void *)new_node, 0, sizeof(list_t));
-	new_node->num = num;
-	if (str)
+
+	if (*head == NULL)
 	{
-		new_node->str = _strdup(str);
-		if (!new_node->str)
-		{
-			free(new_node);
-			return (NULL);
-		}
-	}
-	if (node)
-	{
-		while (node->next)
-			node = node->next;
-		node->next = new_node;
+		*head = new_node;
 	}
 	else
-		*head = new_node;
+	{
+		list_t *current = *head;
+		while (current->next)
+			current = current->next;
+		current->next = new_node;
+	}
+
 	return (new_node);
 }
 
@@ -80,18 +73,19 @@ list_t *add_node_to_end(list_t **head, const char *str, int num)
  *
  * Return: size of list
  */
-size_t print_list_data(const list_t *h)
+size_t print_list_data(const list_t *head)
 {
-	size_t i = 0;
+	size_t size = 0;
 
-	while (h)
+	while (head)
 	{
-		_puts(h->str ? h->str : "(nil)");
-		_puts("\n");
-		h = h->next;
-		i++;
+		puts(head->data ? head->data : "(nil)");
+		puts("\n");
+		head = head->next;
+		size++;
 	}
-	return (i);
+
+	return (size);
 }
 
 /**
