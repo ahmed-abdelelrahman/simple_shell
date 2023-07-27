@@ -266,4 +266,3 @@ int replace_variables(info_t *);
 int replace_string(char **, char *);
 
 #endif
-
