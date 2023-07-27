@@ -2,6 +2,7 @@
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * my_print_env - prints the current environment variables
 =======
  * print_string - Traverse and print the strings in the linked list.
@@ -34,6 +35,8 @@ const char *starts_with(const char *haystack, const char *needle) {
 }
 
 /**
+=======
+>>>>>>> 0eb1bd436fe03f94b0766d1214745d354c96890a
  * _myenv - prints the current environment
 >>>>>>> 82d6624a7d62d15ead7f01d08f0d7102be4c22a3
  * @info: Structure containing potential arguments. Used to maintain
@@ -119,7 +122,7 @@ int initialize_env_list(info_t *info)
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
-		add_node_to_end(&node, environ[i], 0);
+		add_node_end(&node, environ[i], 0);
 	info->env = node;
 	return (0);
 }
