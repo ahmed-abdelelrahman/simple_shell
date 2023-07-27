@@ -1,4 +1,6 @@
 #include "shell.h"
+#include <string.h>
+#include <stdio.h>
 
 /**
  * add_node_to_start - adds a node to the start of the list
