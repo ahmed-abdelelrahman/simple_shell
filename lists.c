@@ -22,8 +22,6 @@ list_t *add_node_to_start(list_t **head, const char *data, int index)
 	return (new_node);
 }
 
-// Add a blank line here
-
 /**
  * add_node_to_end - adds a node to the end of the list
  * @head: address of pointer to head node
@@ -56,8 +54,6 @@ list_t *add_node_to_end(list_t **head, const char *data, int index)
 	return (new_node);
 }
 
-// Add a blank line here
-
 /**
  * print_list_data - prints the data of each node in the list
  * @head: pointer to first node
@@ -78,8 +74,6 @@ size_t print_list_data(const list_t *head)
 
 	return (size);
 }
-
-// Add a blank line here
 
 /**
  * delete_node_at_index - deletes node at given index
@@ -122,8 +116,6 @@ int delete_node_at_index(list_t **head, unsigned int index)
 
 	return (0);
 }
-
-// Add a blank line here
 
 /**
  * free_list - frees all nodes of a list
