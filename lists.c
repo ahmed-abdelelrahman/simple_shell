@@ -6,7 +6,7 @@
  * @str: str field of node
  * @num: node index used by history
  *
- * Return: size of list
+ * Return: pointer to the new node
  */
 list_t *add_node_to_start(list_t **head, const char *str, int num)
 {
@@ -39,7 +39,7 @@ list_t *add_node_to_start(list_t **head, const char *str, int num)
  * @str: str field of node
  * @num: node index used by history
  *
- * Return: size of list
+ * Return: pointer to the new node
  */
 list_t *add_node_to_end(list_t **head, const char *str, int num)
 {
