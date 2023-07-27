@@ -207,9 +207,9 @@ int custom_myexit(info_t *info);
 int custom_mycd(info_t *info);
 int custom_myhelp(info_t *info);
 
-/* my_builtin1.c */
-int my_history(info_t *);
-int my_alias(info_t *);
+/* my_built1.c */
+int custom_history(info_t *);
+int custom_alias(info_t *);
 
 /* my_getline.c */
 ssize_t get_input(info_t *);
