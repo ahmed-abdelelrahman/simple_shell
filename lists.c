@@ -35,8 +35,6 @@ list_t *add_node(list_t **head, const char *str, int num)
 	return (new_node);
 }
 
-// Add a blank line here
-
 /**
  * add_node_end - adds a node to the end of the list
  * @head: address of pointer to head node
