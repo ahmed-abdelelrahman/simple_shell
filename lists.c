@@ -19,12 +19,12 @@ history_t *add_history_node(history_t **history_head, const char *command, int i
     if (!new_node)
         return (NULL);
 
-    memset((void *)new_node, 0, sizeof(history_t));
+    _memset((void *)new_node, 0, sizeof(history_t));
     new_node->index = index;
 
     if (command)
     {
-        new_node->command = strdup(command);
+        new_node->command = _strdup(command);
         if (!new_node->command)
         {
             free(new_node);
@@ -108,7 +108,7 @@ size_t print_list_data(const node_t *head)
  *
  * Return: 1 on success, 0 on failure
  */
-int delete_node_at_index(node_t **head, unsigned int index)
+int delete_node_at_index(list_t **head, unsigned int index)
 {
 	node_t *node, *prev_node;
 	unsigned int i = 0;
