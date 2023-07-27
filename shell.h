@@ -177,6 +177,23 @@ char *convert_number(long int, int, int);
 void remove_comments(char *);
 
 /* my_builtin.c */
+char *_strchr(char *s, char c);
+int _putchar(char c);
+int _puts(char *str);
+int _myhistory(info_t *info);
+int unset_alias(info_t *info, char *str);
+int set_alias(info_t *info, char *str);
+int print_alias(list_t *node);
+int _myalias(info_t *info);
+int _myexit(info_t *info);
+int _mycd(info_t *info);
+int _myhelp(info_t *info);
+int _erratoi(char *str);
+void _eputchar(char c);
+void _eputs(char *str);
+void print_error(info_t *info, char *msg);
+char *_getenv(info_t *info, char *name);
+int _setenv(info_t *info, char *name, char *value);
 int custom_myexit(info_t *);
 int custom_mycd(info_t *);
 int custom_myhelp(info_t *);
