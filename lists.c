@@ -87,7 +87,7 @@ size_t print_list_data(const list_t *h)
 	while (h)
 	{
 		puts(h->str ? h->str : "(nil)");
-		_puts("\n");
+		puts("\n");
 		h = h->next;
 		i++;
 	}
