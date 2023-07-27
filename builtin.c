@@ -98,4 +98,3 @@ int custom_myhelp(info_t *info)
 		puts(*arg_array); /* temp att_unused workaround */
 	return 0;
 }
-
