@@ -127,6 +127,7 @@ int main(int ac, char **av);
 void custom_init(info_t *info);
 void my_shell_function(info_t *info, char **av);
 void custom_cleanup(info_t *info);
+
 /* my_errors.c */
 void print_error_message(char *);
 int print_char_to_fd(char, int);
