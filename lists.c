@@ -14,6 +14,7 @@ list_t *add_node(list_t **head, const char *str, int num)
 		return (NULL);
 
 	list_t *new_node = malloc(sizeof(list_t));
+	// function adds a new node to the start of the linked list.
 	if (!new_node)
 		return (NULL);
 
