@@ -1,13 +1,10 @@
 #include "shell.h"
 
-/* Function prototype */
-void _eputs(const char *str);
-
 /**
  * _erratoi - converts a string to an integer
  * @s: the string to be converted
- *
- * Return: The converted integer if successful, -1 on error
+ * Return: 0 if no numbers in string, converted number otherwise
+ *       -1 on error
  */
 int _erratoi(char *s)
 {
@@ -35,6 +32,8 @@ int _erratoi(char *s)
  * print_error - prints an error message
  * @info: the parameter & return info struct
  * @estr: string containing specified error type
+ * Return: 0 if no numbers in string, converted number otherwise
+ *        -1 on error
  */
 void print_error(info_t *info, char *estr)
 {
@@ -50,18 +49,18 @@ void print_error(info_t *info, char *estr)
 /**
  * print_d - function prints a decimal (integer) number (base 10)
  * @input: the input
- * @fd: the file descriptor to write to
+ * @fd: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
 int print_d(int input, int fd)
 {
-	int (*__putchar)(char) = __putchar;
+	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = __putchar;
+		__putchar = _eputchar;
 	if (input < 0)
 	{
 		_abs_ = -input;
@@ -123,8 +122,10 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - function replaces the first instance of '#' with '\0'
+ * remove_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
+ *
+ * Return: Always 0;
  */
 void remove_comments(char *buf)
 {
