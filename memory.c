@@ -6,7 +6,7 @@
  *
  * Return: 1 if freed, otherwise 0.
  */
-int bfree(void **ptr)
+int free_me(void **ptr)
 {
 	if (ptr && *ptr)
 	{
