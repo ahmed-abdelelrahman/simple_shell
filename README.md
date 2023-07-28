@@ -133,4 +133,3 @@ git shortlog -se \
 - The creators of the C language.
 - Our software engineer-in-residence.
 - Alx-Africa.
-
