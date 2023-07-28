@@ -8,7 +8,7 @@
  */
 int my_environment(info_t *info)
 {
-	print_list_str(info->env);
+	print_list_string(info->env);
 	return (0);
 }
 
@@ -45,10 +45,10 @@ int set_environment(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		_eputs("Incorrect number of arguements\n");
+		puts("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_setenv(info, info->argv[1], info->argv[2]))
+	if (setenv(info, info->argv[1], info->argv[2]))
 		return (0);
 	return (1);
 }
@@ -69,7 +69,7 @@ int unset_environment(info_t *info)
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+		unsetenv(info, info->argv[i]);
 
 	return (0);
 }
