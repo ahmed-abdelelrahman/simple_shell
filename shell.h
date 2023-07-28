@@ -225,11 +225,11 @@ size_t print_all_list_t(const list_t *);
 list_t *node_starts_with_prefix(list_t *, char *, char);
 ssize_t get_node_at_index(list_t *, list_t *);
 
-/* my_vars.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
+/* my_chain.c */
+int test_chain(info_t *, char *, size_t *);
+void continue_chain(info_t *, char *, size_t *, size_t, size_t);
+int displace_alias(info_t *);
+int displace_vars(info_t *);
+int displace_string(char **, char *);
 
 #endif
