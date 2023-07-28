@@ -218,12 +218,12 @@ size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
-/* my_lists1.c */
-size_t list_len(const list_t *);
-char **list_to_strings(list_t *);
-size_t print_list(const list_t *);
-list_t *node_starts_with(list_t *, char *, char);
-ssize_t get_node_index(list_t *, list_t *);
+/* my_list1.c */
+size_t list_len_mina(const list_t *);
+char **arr_to_string(list_t *);
+size_t print_all_list_t(const list_t *);
+list_t *node_starts_with_prefix(list_t *, char *, char);
+ssize_t get_node_at_index(list_t *, list_t *);
 
 /* my_vars.c */
 int is_chain(info_t *, char *, size_t *);
