@@ -172,7 +172,7 @@ char *string_duplicate(const char *);
 void print_string(char *);
 int print_character(char);
 
-/* my_exits.c */
+/* my_getouts.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
@@ -217,7 +217,7 @@ int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
 
-/* my_getinfo.c */
+/* my_info.c */
 void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
@@ -230,7 +230,7 @@ void custom_free_list(list_t **head);
 void custom_bfree(void **ptr);
 void custom_putchar(char c);
 
-/* my_environ.c */
+/* my_viron.c */
 char *get_environment(info_t *, const char *);
 int my_environment(info_t *);
 int my_setenv(info_t *);
