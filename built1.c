@@ -53,7 +53,7 @@ int set_alias_to_string(info_t *info, char *str)
 	if (!*++p)
 		return (unset_alias_to_string(info, str));
 
-	unset_alias(info, str);
+	unset_alias_to_string(info, str);
 	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
 
@@ -108,7 +108,7 @@ int mimics_alias(info_t *info)
 		if (p)
 			set_alias_to_string(info, info->argv[i]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
+			print_list(node_starts_with(info->alias, info->argv[i], '='));
 	}
 
 	return (0);
