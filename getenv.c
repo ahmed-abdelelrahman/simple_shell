@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * get_environment_variables - returns the string array copy of our environ
+ * get_environment_variable - returns the string array copy of our environ
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
