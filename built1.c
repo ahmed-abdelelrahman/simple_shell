@@ -51,7 +51,7 @@ int set_alias(info_t *info, char *str)
 	if (!p)
 		return (1);
 	if (!*++p)
-		return (unset_alias(info, str));
+		return (uniset_alias(info, str));
 
 	unset_alias(info, str);
 	return (add_node_end(&(info->alias), str, 0) == NULL);
@@ -71,9 +71,9 @@ int print_alias(list_t *node)
 	{
 		p = _strchr(node->str, '=');
 		for (a = node->str; a <= p; a++)
-			_putchar(*a);
+			putchar(*a);
 		_putchar('\'');
-		_puts(p + 1);
+		puts(p + 1);
 		_puts("'\n");
 		return (0);
 	}
