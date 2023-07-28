@@ -173,10 +173,10 @@ int write_dec(int, int);
 char *convert_num(long int, int, int);
 void remove_comment(char *);
 
-/* my_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+/* my_built.c */
+int mina_robir_myexit(info_t *);
+int robir_mycd(info_t *);
+int robir_myhelp(info_t *);
 
 /* my_builtin1.c */
 int _myhistory(info_t *);
