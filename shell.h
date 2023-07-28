@@ -187,10 +187,10 @@ ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
-/* my_getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+/* my_info.c */
+void remove_info(info_t *);
+void init_info(info_t *, char **);
+void free_info_t(info_t *, int);
 
 /* my_viron.c */
 char *get_evironment(info_t *, const char *);
