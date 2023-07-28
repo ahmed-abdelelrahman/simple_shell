@@ -240,7 +240,7 @@ int populate_environment_list(info_t *);
 /* my_getenv.c */
 char **get_environment_variables(info_t *);
 int unset_environment_variable(info_t *, char *);
-int set_environment_variable(info_t *, char *, char *);
+int add_environment_variable(info_t *, char *, char *);
 
 /* my_history.c */
 char *get_history_file(info_t *info);
