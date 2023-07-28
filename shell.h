@@ -137,11 +137,11 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 
-/* my_string1.c */
-char *_strcpy(char *, char *);
-char *_strdup(const char *);
-void _puts(char *);
-int _putchar(char);
+/* my_str1.c */
+char *copy_string1(char *, char *);
+char *duplicate_string1(const char *);
+void print_string_1(char *);
+int print_character_1(char);
 
 /* my_info.c */
 char *copy_string(char *, char *, int);
