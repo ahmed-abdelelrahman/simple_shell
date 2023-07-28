@@ -117,7 +117,7 @@ int find_builtin(info_t *);
 void find_cmd(info_t *);
 void fork_cmd(info_t *);
 
-/* my_parser.c */
+/* my_execute.c */
 int execue_file(info_t *, char *);
 char *duplo_chars(char *, int, int);
 char *see_full_path(info_t *, char *, char *);
@@ -143,7 +143,7 @@ char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* my_getinfo.c */
+/* my_info.c */
 char *copy_string(char *, char *, int);
 char *conc_string(char *, char *, int);
 char *locate_string(char *, char);
@@ -152,10 +152,10 @@ char *locate_string(char *, char);
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 
-/* my_realloc.c */
-char *_memset(char *, char, unsigned int);
-void ffree(char **);
-void *_realloc(void *, unsigned int, unsigned int);
+/* my_fill_memory.c */
+char *_memset_memory(char *, char, unsigned int);
+void ffree_string(char **);
+void *_reallocs_block(void *, unsigned int, unsigned int);
 
 /* my_memory.c */
 int free_me(void **);
