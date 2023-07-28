@@ -204,12 +204,12 @@ char **get_environment(info_t *);
 int unset_environment(info_t *, char *);
 int set_environment(info_t *, char *, char *);
 
-/* my_history.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+/* my_file_history.c */
+char *get_file(info_t *info);
+int add_file(info_t *info);
+int read_file(info_t *info);
+int add_list(info_t *info, char *buf, int linecount);
+int rnum_history(info_t *info);
 
 /* my_lists.c */
 list_t *add_node(list_t **, const char *, int);
