@@ -148,9 +148,9 @@ char *copy_string(char *, char *, int);
 char *conc_string(char *, char *, int);
 char *locate_string(char *, char);
 
-/* my_tokenizer.c */
-char **strtow(char *, char *);
-char **strtow2(char *, char);
+/* my_split.c */
+char **split_string2(char *, char *);
+char **split_string(char *, char);
 
 /* my_fill_memory.c */
 char *_memset_memory(char *, char, unsigned int);
