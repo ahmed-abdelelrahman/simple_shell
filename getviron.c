@@ -1,27 +1,5 @@
 #include "shell.h"
 
-
-/**
- * starts_with - Checks if a string starts with a specific prefix.
- * @str: The string to check.
- * @prefix: The prefix to look for.
- *
- * Return: If the string starts with the prefix - a pointer to the
- * beginning of the prefix within the string.
- * Otherwise - NULL.
- */
-char *starts_with(const char *str, const char *prefix)
-{
-    while (*prefix)
-    {
-        if (*prefix != *str)
-            return NULL;
-        prefix++;
-        str++;
-    }
-    return (char *)str;
-}
-
 /**
  * get_environment_variable - returns the string array copy of our environ
  * @info: Structure containing potential arguments. Used to maintain
