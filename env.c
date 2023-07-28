@@ -1,34 +1,6 @@
 #include "shell.h"
 
 /**
- * starts_with - Check if a string starts with a prefix.
- * @str: The string to check.
- * @prefix: The prefix to look for.
- *
- * Return: If the string starts with the prefix, a pointer to the beginning
- *         of the prefix within the string is returned. Otherwise, NULL is returned.
- */
-char *starts_with(const char *str, const char *prefix);
-
-/**
- * delete_node_at_index - Delete a node at a given index in a linked list.
- * @head: Double pointer to the head of the linked list.
- * @index: Index of the node to delete.
- *
- * Return: 1 on success, -1 on failure.
- */
-int delete_node_at_index(list_t **head, unsigned int index);
-
-/**
- * add_node_end - Add a new node at the end of a linked list.
- * @head: Double pointer to the head of the linked list.
- * @str: The string to be added to the new node.
- * @num: The line number (unused in this context).
- *
- * Return: Address of the new node, or NULL on failure.
- */
-list_t *add_node_end(list_t **head, const char *str, int num);
-/**
  * get_environ - returns the string array copy of our environ
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
