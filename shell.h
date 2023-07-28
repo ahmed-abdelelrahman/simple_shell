@@ -164,7 +164,7 @@ int bfree(void **);
 int interactive(info_t *);
 int delim(char, char *);
 int alpha(int);
-int atoi(char *);
+int _atoi(char *);
 
 /* my_errors1.c */
 int _erratoi(char *);
