@@ -182,10 +182,10 @@ int _myhelp(info_t *);
 int _myhistory(info_t *);
 int _myalias(info_t *);
 
-/*my_getline.c */
-ssize_t get_input(info_t *);
-int _getline(info_t *, char **, size_t *);
-void sigintHandler(int);
+/*my_line.c */
+ssize_t input_buffers(info_t *);
+int get_next_line(info_t *, char **, size_t *);
+void block_ctrl_C(int);
 
 /* my_info.c */
 void remove_info(info_t *);
