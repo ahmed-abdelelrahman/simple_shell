@@ -178,9 +178,9 @@ int mina_robir_myexit(info *);
 int robir_mycd(info *);
 int robir_myhelp(info_t *);
 
-/* my_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+/* my_built1.c */
+int show_history(info_t *);
+int mimics_alias(info_t *);
 
 /*my_line.c */
 ssize_t input_buffers(info_t *);
