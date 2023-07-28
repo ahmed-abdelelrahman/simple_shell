@@ -1,25 +1,25 @@
 #include "shell.h"
 
 /**
- * my_environment - prints the current environment
+ * _myenvironment - prints the current environment
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
-int my_environment(info_t *info)
+int _myenvironment(info_t *info)
 {
-	print_list_string(info->env);
+	print_list_str(info->env);
 	return (0);
 }
 
 /**
- * get_environment - gets the value of an environ variable
+ * _getenvironment - gets the value of an environ variable
  * @info: Structure containing potential arguments. Used to maintain
  * @name: env var name
  *
  * Return: the value
  */
-char *get_environment(info_t *info, const char *name)
+char *_getenvironment(info_t *info, const char *name)
 {
 	list_t *node = info->env;
 	char *p;
@@ -45,10 +45,10 @@ int set_environment(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		puts("Incorrect number of arguements\n");
+		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (setenv(info, info->argv[1], info->argv[2]))
+	if (_setenv(info, info->argv[1], info->argv[2]))
 		return (0);
 	return (1);
 }
@@ -65,11 +65,11 @@ int unset_environment(info_t *info)
 
 	if (info->argc == 1)
 	{
-		puts("Too few arguements.\n");
+		_eputs("Too few arguements.\n");
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
-		unsetenv(info, info->argv[i]);
+		_unsetenv(info, info->argv[i]);
 
 	return (0);
 }
