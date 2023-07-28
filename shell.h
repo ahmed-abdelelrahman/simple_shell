@@ -199,10 +199,10 @@ int set_environment(info_t *);
 int unset_environment(info_t *);
 int populate_environment_list(info_t *);
 
-/* my_getenv.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+/* my_viron1.c */
+char **get_environment(info_t *);
+int unset_environment(info_t *, char *);
+int set_environment(info_t *, char *, char *);
 
 /* my_history.c */
 char *get_history_file(info_t *info);
