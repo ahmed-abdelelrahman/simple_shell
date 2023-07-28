@@ -211,12 +211,12 @@ int read_file(info_t *info);
 int add_list(info_t *info, char *buf, int linecount);
 int rnum_history(info_t *info);
 
-/* my_lists.c */
-list_t *add_node(list_t **, const char *, int);
-list_t *add_node_end(list_t **, const char *, int);
-size_t print_list_str(const list_t *);
+/* my_list.c */
+list_t *add_node_from_start(list_t **, const char *, int);
+list_t *add_node_to_end(list_t **, const char *, int);
+size_t print_list_string(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
-void free_list(list_t **);
+void free_list_nodes_mina(list_t **);
 
 /* my_list1.c */
 size_t list_len_mina(const list_t *);
