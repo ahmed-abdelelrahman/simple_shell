@@ -1,79 +1,79 @@
 #include "shell.h"
 
 /**
- * _myhistory - displays the history list, one command by line, preceded
+ * robir_myhistory - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
-int _myhistory(info_t *info)
+int robir_myhistory(inforobir_t *inforobir)
 {
-	print_list(info->history);
+	print_list(inforobir->history);
 	return (0);
 }
 
 /**
- * unset_alias - sets alias to string
+ * robir_unset_alias - sets alias to string
  * @info: parameter struct
  * @str: the string alias
  *
  * Return: Always 0 on success, 1 on error
  */
-int unset_alias(info_t *info, char *str)
+int robir_unset_alias(inforobir_t *inforobir, char *robir_str)
 {
-	char *p, c;
-	int ret;
+	char *r, k;
+	int retory;
 
-	p = _strchr(str, '=');
-	if (!p)
+	r = _strchr(robir_str, '=');
+	if (!r)
 		return (1);
-	c = *p;
-	*p = 0;
-	ret = delete_node_at_index(&(info->alias),
-		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	*p = c;
-	return (ret);
+	k = *r;
+	*r = 0;
+	retory = delete_node_at_index(&(inforobir->alias),
+		get_node_index(inforobir->alias, node_starts_with(inforobir->alias, robir_str, -1)));
+	*r = k;
+	return (retory);
 }
 
 /**
- * set_alias - sets alias to string
+ * robir_set_alias - sets alias to string
  * @info: parameter struct
  * @str: the string alias
  *
  * Return: Always 0 on success, 1 on error
  */
-int set_alias(info_t *info, char *str)
+int robir_set_alias(inforobir_t *inforobir, char *robir_str)
 {
-	char *p;
+	char *r;
 
-	p = _strchr(str, '=');
-	if (!p)
+	r = _strchr(robir_str, '=');
+	if (!r)
 		return (1);
-	if (!*++p)
-		return (unset_alias(info, str));
+	if (!*++r)
+		return (robir_unset_alias(inforobir, robir_str));
 
-	unset_alias(info, str);
-	return (add_node_end(&(info->alias), str, 0) == NULL);
+	robir_unset_alias(inforobir, robir_str);
+	return (add_node_end(&(inforobir->alias), robir_str, 0) == NULL);
 }
 
 /**
- * print_alias - prints an alias string
+ * robir_print_alias - prints an alias string
  * @node: the alias node
  *
  * Return: Always 0 on success, 1 on error
  */
-int print_alias(list_t *node)
+int robir_print_alias(list_t *node)
 {
-	char *p = NULL, *a = NULL;
+	char *r = NULL, *o = NULL;
 
 	if (node)
 	{
-		p = _strchr(node->str, '=');
-		for (a = node->str; a <= p; a++)
-			_putchar(*a);
+		r = _strchr(node->robir_str, '=');
+		for (o = node->robir_str; o <= r; o++)
+			_putchar(*o);
 		_putchar('\'');
-		_puts(p + 1);
+		_puts(r + 1);
 		_puts("'\n");
 		return (0);
 	}
@@ -81,20 +81,20 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - mimics the alias builtin (man alias)
+ * robir_myalias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
+ *          constant function prototype.t
  *  Return: Always 0
  */
-int _myalias(info_t *info)
+int robir_myalias(inforobir_t *inforobir)
 {
-	int i = 0;
-	char *p = NULL;
+	int y = 0;
+	char *t = NULL;
 	list_t *node = NULL;
 
-	if (info->argc == 1)
+	if (inforobir->argc == 1)
 	{
-		node = info->alias;
+		node = inforobir->robir_alias;
 		while (node)
 		{
 			print_alias(node);
@@ -102,13 +102,13 @@ int _myalias(info_t *info)
 		}
 		return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (y = 1; info->argv[y]; y++)
 	{
-		p = _strchr(info->argv[i], '=');
-		if (p)
-			set_alias(info, info->argv[i]);
+		t = _strchr(inforobir->argv[y], '=');
+		if (t)
+			set_alias(inforobir, inforobir->argv[y]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
+			print_alias(node_starts_with(inforobir->robir_alias, inforobir->argv[y], '='));
 	}
 
 	return (0);
