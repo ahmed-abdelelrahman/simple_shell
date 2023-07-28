@@ -234,8 +234,8 @@ void custom_putchar(char c);
 /* my_viron.c */
 char *get_environment(info_t *, const char *);
 int my_environment(info_t *);
-int my_setenv(info_t *);
-int my_unsetenv(info_t *);
+int set_environment(info_t *);
+int unset_environment(info_t *);
 int populate_environment_list(info_t *);
 
 /* my_getviron.c */
