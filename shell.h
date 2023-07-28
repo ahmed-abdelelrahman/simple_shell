@@ -166,12 +166,12 @@ int delim(char, char *);
 int alpha(int);
 int _atoi(char *);
 
-/* my_errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+/* my_error1.c */
+int strconvint(char *);
+void write_err(info_t *, char *);
+int write_dec(int, int);
+char *convert_num(long int, int, int);
+void remove_comment(char *);
 
 /* my_builtin.c */
 int _myexit(info_t *);
