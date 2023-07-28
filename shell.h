@@ -238,7 +238,7 @@ int my_setenv(info_t *);
 int my_unsetenv(info_t *);
 int populate_environment_list(info_t *);
 
-/* my_getenv.c */
+/* my_getviron.c */
 char **get_environment_variable(info_t *);
 int unset_environment_variable(info_t *, char *);
 int add_environment_variable(info_t *, char *, char *);
