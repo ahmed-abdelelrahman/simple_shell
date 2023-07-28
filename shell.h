@@ -132,10 +132,10 @@ int write_char(char c, int fd);
 int print_string(char *str, int fd);
 
 /* my_string.c */
-int _strlen(char *);
-int _strcmp(char *, char *);
-char *starts_with(const char *, const char *);
-char *_strcat(char *, char *);
+int get_string_length(char *);
+int compare_2_Strings(char *, char *);
+char *starts_with_haystack(const char *, const char *);
+char *add_2string(char *, char *);
 
 /* my_str1.c */
 char *copy_string1(char *, char *);
