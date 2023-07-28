@@ -202,10 +202,10 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
-/* my_builtin.c */
-int custom_myexit(info_t *info);
-int custom_mycd(info_t *info);
-int custom_myhelp(info_t *info);
+/* my_built.c */
+int custom_exit(info_t *info);
+int custom_cd(info_t *info);
+int custom_help(info_t *info);
 
 /* my_built1.c */
 int custom_history(info_t *);
