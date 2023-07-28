@@ -153,6 +153,7 @@ int main(int ac, char **av);
 void custom_init(info_t *info);
 void my_shell_function(info_t *info, char **av);
 void custom_cleanup(info_t *info);
+
 /* my_errors.c */
 void print_error_message(char *);
 int print_char_to_fd(char, int);
@@ -172,7 +173,7 @@ char *string_duplicate(const char *);
 void print_string(char *);
 int print_character(char);
 
-/* my_exits.c */
+/* my_getouts.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
@@ -202,14 +203,14 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
-/* my_builtin.c */
-int custom_myexit(info_t *info);
-int custom_mycd(info_t *info);
-int custom_myhelp(info_t *info);
+/* my_built.c */
+int custom_exit(info_t *info);
+int custom_cd(info_t *info);
+int custom_help(info_t *info);
 
-/* my_builtin1.c */
-int my_history(info_t *);
-int my_alias(info_t *);
+/* my_built1.c */
+int custom_history(info_t *);
+int custom_alias(info_t *);
 
 /* my_getline.c */
 ssize_t get_input(info_t *);
@@ -217,7 +218,7 @@ int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
 
-/* my_getinfo.c */
+/* my_info.c */
 void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
@@ -230,17 +231,18 @@ void custom_free_list(list_t **head);
 void custom_bfree(void **ptr);
 void custom_putchar(char c);
 
-/* my_environ.c */
+/* my_viron.c */
 char *get_environment(info_t *, const char *);
 int my_environment(info_t *);
 int my_setenv(info_t *);
 int my_unsetenv(info_t *);
 int populate_environment_list(info_t *);
 
-/* my_getenv.c */
-char **get_environment_variables(info_t *);
+/* my_getviron.c */
+char **get_environment_variable(info_t *);
 int unset_environment_variable(info_t *, char *);
-int set_environment_variable(info_t *, char *, char *);
+int add_environment_variable(info_t *, char *, char *);
+
 
 /* my_history.c */
 char *get_history_file(info_t *info);

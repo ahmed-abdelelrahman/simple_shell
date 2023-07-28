@@ -1,63 +1,13 @@
 #include "shell.h"
 
 /**
- * _strchr - Locate character in string
- * @s: Pointer to the string
- * @c: Character to locate
- *
- * Return: Pointer to the first occurrence of the character c in the string s,
- *         or NULL if the character is not found.
- */
-char *_strchr(char *s, char c)
-{
-	while (*s != '\0')
-	{
-		if (*s == c)
-			return s;
-		s++;
-	}
-	if (*s == c)
-		return s;
-	return NULL;
-}
-
-/**
- * _putchar - Writes a character to the standard output (stdout)
- * @c: The character to be written
- *
- * Return: On success, the character written, otherwise EOF.
- */
-int _putchar(char c)
-{
-	return write(1, &c, 1);
-}
-
-/**
- * _puts - Writes the string to the standard output (stdout)
- * @str: The string to be written
- *
- * Return: On success, the number of characters written, otherwise EOF.
- */
-int _puts(char *str)
-{
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		_putchar(str[i]);
-		i++;
-	}
-	return i;
-}
-
-/**
- * _myhistory - displays the history list, one command by line, preceded
+ * custom_history - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
-int _myhistory(info_t *info)
+int custom_history(info_t *info)
 {
 	print_list(info->history);
 	return (0);
@@ -121,22 +71,22 @@ int print_alias(list_t *node)
 	{
 		p = _strchr(node->str, '=');
 		for (a = node->str; a <= p; a++)
-			_putchar(*a);
-		_putchar('\'');
-		_puts(p + 1);
-		_puts("'\n");
+			putchar(*a);
+		putchar('\'');
+		puts(p + 1);
+		puts("'\n");
 		return (0);
 	}
 	return (1);
 }
 
 /**
- * _myalias - mimics the alias builtin (man alias)
+ * custom_alias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
  */
-int _myalias(info_t *info)
+int custom_alias(info_t *info)
 {
 	int i = 0;
 	char *p = NULL;
