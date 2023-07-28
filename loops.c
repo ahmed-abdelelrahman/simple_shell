@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * hsh - main shell loop
+ * loop_mina - main shell loop
  * @info: the parameter & return info struct
  * @av: the argument vector from main()
  *
@@ -44,7 +44,7 @@ int loop_mina(info_t *info, char **av)
 }
 
 /**
- * find_builtin - finds a built command
+ * find_built_command - finds a built command
  * @info: the parameter & return info struct
  *
  * Return: -1 if builtin not found,
