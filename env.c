@@ -76,7 +76,7 @@
          node = info->env; 
          while (node) 
          { 
-                 p = starts_with(node->str, var); 
+                 p = node_starts_with(node->str, var); 
                  if (p && *p == '=') 
                  { 
                          free(node->str); 
