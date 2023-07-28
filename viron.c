@@ -59,7 +59,7 @@ int set_environment(info_t *info)
  *        constant function prototype.
  *  Return: Always 0
  */
-int unset_environmentinfo_t *info)
+int unset_environment(info_t *info)
 {
 	int i;
 
