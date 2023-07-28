@@ -143,7 +143,7 @@ char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* my_exits.c */
+/* my_getinfo.c */
 char *copy_string(char *, char *, int);
 char *conc_string(char *, char *, int);
 char *locate_string(char *, char);
@@ -158,7 +158,7 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* my_memory.c */
-int bfree(void **);
+int free_me(void **);
 
 /* my_atoi.c */
 int interactive(info_t *);
