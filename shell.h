@@ -192,7 +192,7 @@ void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
-/* my_environ.c */
+/* my_viron.c */
 char *get_evironment(info_t *, const char *);
 int my_environment(info_t *);
 int set_environment(info_t *);
