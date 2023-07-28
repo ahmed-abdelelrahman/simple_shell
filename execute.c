@@ -43,7 +43,7 @@ char *duplo_chars(char *pathstr, int start, int stop)
 }
 
 /**
- * see_path - finds this cmd in the PATH string
+ * see_full_path - finds this cmd in the PATH string
  * @info: the info struct
  * @pathstr: the PATH string
  * @cmd: the cmd to find
