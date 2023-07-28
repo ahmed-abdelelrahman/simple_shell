@@ -21,14 +21,14 @@ char **get_environment_variable(info_t *info)
  * unset_environment_variable - Remove an environment variable
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
- *  Return: 1 on delete, 0 otherwise
+ * Return: 1 on delete, 0 otherwise
  * @var: the string env var property
  */
 int unset_environment_variable(info_t *info, char *var)
 {
 	list_t *node = info->env;
 	size_t i = 0;
-	char *p;
+	const char *p;
 
 	if (!node || !var)
 		return (0);
@@ -56,7 +56,7 @@ int unset_environment_variable(info_t *info, char *var)
  *        constant function prototype.
  * @var: the string env var property
  * @value: the string env var value
- *  Return: Always 0
+ * Return: Always 0
  */
 int add_environment_variable(info_t *info, char *var, char *value)
 {
@@ -70,9 +70,9 @@ int add_environment_variable(info_t *info, char *var, char *value)
 	buf = malloc(_strlen(var) + _strlen(value) + 2);
 	if (!buf)
 		return (1);
-	_strcpy(buf, var);
-	_strcat(buf, "=");
-	_strcat(buf, value);
+	strcpy(buf, var); // Change _strcpy to strcpy
+	strcat(buf, "=");
+	strcat(buf, value);
 	node = info->env;
 	while (node)
 	{
@@ -91,5 +91,4 @@ int add_environment_variable(info_t *info, char *var, char *value)
 	info->env_changed = 1;
 	return (0);
 }
-
 
