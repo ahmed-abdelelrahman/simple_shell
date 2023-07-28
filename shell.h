@@ -242,7 +242,7 @@ int populate_environment_list(info_t *);
 char **get_environment_variable(info_t *);
 int unset_environment_variable(info_t *, char *);
 int add_environment_variable(info_t *, char *, char *);
-const char *starts_with(const char *str, const char *prefix);
+
 
 /* my_history.c */
 char *get_history_file(info_t *info);
