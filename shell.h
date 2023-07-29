@@ -174,8 +174,8 @@ char *convert_num(long int, int, int);
 void remove_comment(char *);
 
 /* my_built.c */
-int mina_robir_myexit(info *);
-int robir_mycd(info *);
+int mina_robir_myexit(info_t *);
+int robir_mycd(info_t *);
 int robir_myhelp(info_t *);
 
 /* my_built1.c */
