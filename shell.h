@@ -175,8 +175,8 @@ void remove_comment(char *);
 
 /* my_built.c */
 int mina_robir_myexit(info *);
-int robir_mycd(info *);
-int robir_myhelp(info_t *);
+int robir_mycd(info_t *);
+int robir_myhelp(info *);
 
 /* my_built1.c */
 int show_history(info_t *);
